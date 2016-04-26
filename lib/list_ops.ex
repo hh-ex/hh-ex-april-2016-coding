@@ -13,6 +13,12 @@ defmodule ListOps do
       |> reverse
   end
 
+  def filter(list, filter_fun) do
+    reduce(list, [], fn(x, acc) ->
+      if filter_fun.(x), do: [x | acc], else: acc
+    end) |> reverse
+  end
+
   def reduce(list, acc, step_fun)
   def reduce([h | tail], acc, step_fun) do
     reduce(tail, step_fun.(h,acc), step_fun)

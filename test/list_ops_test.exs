@@ -27,36 +27,36 @@ defmodule ListOpsTest do
     assert ListOps.reverse(Enum.to_list(1..1_000_000)) == Enum.to_list(1_000_000..1)
   end
 
-  # test "map of empty list" do
-  #   assert ListOps.map([], &(&1+1)) == []
-  # end
-  #
-  # test "map of normal list" do
-  #   assert ListOps.map([1,3,5,7], &(&1+1)) == [2,4,6,8]
-  # end
-  #
-  # test "map of huge list" do
-  #   assert ListOps.map(Enum.to_list(1..1_000_000), &(&1+1)) ==
-  #     Enum.to_list(2..1_000_001)
-  # end
-  #
-  # test "filter of empty list" do
-  #   assert ListOps.filter([], &odd?/1) == []
-  # end
-  #
-  # test "filter of normal list" do
-  #   assert ListOps.filter([1,2,3,4], &odd?/1) == [1,3]
-  # end
-  #
-  # test "filter of huge list" do
-  #   assert ListOps.filter(Enum.to_list(1..1_000_000), &odd?/1) ==
-  #     Enum.map(1..500_000, &(&1*2-1))
-  # end
-  #
-  # test "reduce of empty list" do
-  #   assert ListOps.reduce([], 0, &(&1+&2)) == 0
-  # end
-  #
+   test "map of empty list" do
+     assert ListOps.map([], &(&1+1)) == []
+   end
+
+   test "map of normal list" do
+     assert ListOps.map([1,3,5,7], &(&1+1)) == [2,4,6,8]
+   end
+
+   test "map of huge list" do
+     assert ListOps.map(Enum.to_list(1..1_000_000), &(&1+1)) ==
+       Enum.to_list(2..1_000_001)
+   end
+
+   test "filter of empty list" do
+     assert ListOps.filter([], &odd?/1) == []
+   end
+
+   test "filter of normal list" do
+     assert ListOps.filter([1,2,3,4], &odd?/1) == [1,3]
+   end
+
+   test "filter of huge list" do
+     assert ListOps.filter(Enum.to_list(1..1_000_000), &odd?/1) ==
+       Enum.map(1..500_000, &(&1*2-1))
+   end
+
+   test "reduce of empty list" do
+     assert ListOps.reduce([], 0, &(&1+&2)) == 0
+   end
+
    test "reduce of normal list" do
      assert ListOps.reduce([1,2,3,4], -3, &(&1+&2)) == 7
    end
