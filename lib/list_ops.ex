@@ -1,7 +1,11 @@
 defmodule ListOps do
-  def count([]), do: 0
-  def count([head | tail]) do
-    1 + count(tail)
+  def count(list) do
+    _count(list, 0)
+  end
+
+  defp _count([], acc), do: acc
+  defp _count([head | tail], acc) do
+    _count(tail, acc + 1)
   end
 
   def reverse(list) do
