@@ -19,6 +19,12 @@ defmodule ListOps do
     end) |> reverse
   end
 
+  def append(list, other) do
+    list
+      |> reverse
+      |> reduce(other, fn(x, acc) -> [x | acc] end)
+  end
+
   def reduce(list, acc, step_fun)
   def reduce([h | tail], acc, step_fun) do
     reduce(tail, step_fun.(h,acc), step_fun)

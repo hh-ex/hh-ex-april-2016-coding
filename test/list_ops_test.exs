@@ -69,27 +69,27 @@ defmodule ListOpsTest do
    test "reduce with non-commutative function" do
      assert ListOps.reduce([1,2,3,4], 10, fn x, acc -> acc - x end) == 0
    end
-  #
-  # test "append of empty lists" do
-  #   assert ListOps.append([], []) == []
-  # end
-  #
-  # test "append of empty and non-empty list" do
-  #   assert ListOps.append([], [1,2,3,4]) == [1,2,3,4]
-  # end
-  #
-  # test "append of non-empty and empty list" do
-  #   assert ListOps.append([1,2,3,4], []) == [1,2,3,4]
-  # end
-  #
-  # test "append of non-empty lists" do
-  #   assert ListOps.append([1,2,3], [4,5]) == [1,2,3,4,5]
-  # end
-  #
-  # test "append of huge lists" do
-  #   assert ListOps.append(Enum.to_list(1..1_000_000), Enum.to_list(1_000_001..2_000_000)) ==
-  #     Enum.to_list(1..2_000_000)
-  # end
+
+   test "append of empty lists" do
+     assert ListOps.append([], []) == []
+   end
+
+   test "append of empty and non-empty list" do
+     assert ListOps.append([], [1,2,3,4]) == [1,2,3,4]
+   end
+
+   test "append of non-empty and empty list" do
+     assert ListOps.append([1,2,3,4], []) == [1,2,3,4]
+   end
+
+   test "append of non-empty lists" do
+     assert ListOps.append([1,2,3], [4,5]) == [1,2,3,4,5]
+   end
+
+   test "append of huge lists" do
+     assert ListOps.append(Enum.to_list(1..1_000_000), Enum.to_list(1_000_001..2_000_000)) ==
+       Enum.to_list(1..2_000_000)
+   end
   #
   # test "concat of empty list of lists" do
   #   assert ListOps.concat([]) == []
