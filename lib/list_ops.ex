@@ -25,6 +25,14 @@ defmodule ListOps do
       |> reduce(other, fn(x, acc) -> [x | acc] end)
   end
 
+  def concat(list_of_lists) do
+    reduce(list_of_lists, [], fn(x, acc) ->
+      reduce(x, acc, fn(y, acc2) ->
+        [y | acc2]
+      end)
+    end) |> reverse
+  end
+
   def reduce(list, acc, step_fun)
   def reduce([h | tail], acc, step_fun) do
     reduce(tail, step_fun.(h,acc), step_fun)
