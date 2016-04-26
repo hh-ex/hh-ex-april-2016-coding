@@ -1,6 +1,6 @@
 defmodule ListOps do
   def count(list) do
-
+    reduce(list, 0, fn(_x,acc) -> acc + 1 end)
   end
 
   def reduce(list, acc, step_fun)
