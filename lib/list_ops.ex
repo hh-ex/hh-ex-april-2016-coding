@@ -20,9 +20,7 @@ defmodule ListOps do
   end
 
   def append(list, other) do
-    list
-      |> reverse
-      |> reduce(other, fn(x, acc) -> [x | acc] end)
+    concat([list, other])
   end
 
   def concat(list_of_lists) do
