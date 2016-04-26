@@ -3,6 +3,10 @@ defmodule ListOps do
     reduce(list, 0, fn(_x,acc) -> acc + 1 end)
   end
 
+  def reverse(list) do
+    reduce(list, [], fn(x, acc) -> [x | acc] end)
+  end
+
   def reduce(list, acc, step_fun)
   def reduce([h | tail], acc, step_fun) do
     reduce(tail, step_fun.(h,acc), step_fun)
