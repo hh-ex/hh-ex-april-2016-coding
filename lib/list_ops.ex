@@ -16,4 +16,17 @@ defmodule ListOps do
   defp _reverse([head | tail], reversed_list) do
     _reverse(tail, [head | reversed_list])
   end
+
+  def map(list, func) do
+    _map([], list, func)
+  end
+
+  defp _map(mapped_list, [], _func) do
+    mapped_list |> reverse
+  end
+
+  defp _map(mapped_list, [head | tail], func) do
+    [func.(head) | mapped_list]
+    |> _map(tail, func)
+  end
 end
